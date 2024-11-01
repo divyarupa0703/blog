@@ -1,0 +1,117 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #f0f4c3, #c8e6c9); /* Soft gradient background */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    animation: fadeIn 1s; /* Fade-in effect for the body */
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .app-container {
+    background: white;
+    border-radius: 12px; /* Slightly rounded corners */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    width: 350px;
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth scaling and shadow change */
+  }
+  
+  .app-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+  }
+  
+  h1 {
+    text-align: center;
+    color: #067b33; /* Primary heading color */
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  input {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border: 2px solid #ddd;
+    border-radius: 6px; /* Slightly rounded corners for inputs */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition for focus effect */
+  }
+  
+  input:focus {
+    border-color: #4caf50; /* Focus color matching the theme */
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    outline: none;
+  }
+  
+  /* Button Styles */
+  .btn, .toggle-btn {
+    padding: 0.75rem;
+    background-color: #4caf50; /* Primary button color */
+    color: white; /* Text color */
+    border: none;
+    border-radius: 6px; /* Rounded corners */
+    cursor: pointer;
+    position: relative; /* Position for overlay */
+    overflow: hidden; /* Hide overflow */
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Add transition for effects */
+  }
+  
+  .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1); /* Light overlay */
+    opacity: 0; /* Start invisible */
+    transition: opacity 0.3s; /* Transition effect for overlay */
+    z-index: 0; /* Behind text */
+  }
+  
+  .btn:hover {
+    background-color: #95fa9a; /* Darker button color on hover */
+    transform: translateY(-3px); /* Lift effect */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+  }
+  
+  .btn:hover::before {
+    opacity: 1; /* Show overlay on hover */
+  }
+  
+  .toggle-btn {
+    background: none;
+    color: #4caf50; /* Text color for toggle button */
+    text-decoration: underline;
+    transition: color 0.3s; /* Transition for color change */
+  }
+  
+  .toggle-btn:hover {
+    color: #388e3c; /* Darker color on hover */
+  }
+  
+  p {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #555; /* Slightly muted text color */
+  }
+  

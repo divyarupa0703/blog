@@ -1,13 +1,13 @@
-// routes/userRoute.js
 const express = require('express');
 const { registerUser, loginUser } = require('../controllers/userController');
+const { validateRegister, validateLogin } = require('../middleware/validators');
 
-const user_route = express.Router();
+const router = express.Router();
 
-// User Registration Route
-user_route.post('/register', registerUser);
+// Registration route
+router.post('/signup', validateRegister, registerUser);
 
-// User Login Route
-user_route.post('/login', loginUser);
+// Login route
+router.post('/login', validateLogin, loginUser);
 
-module.exports = user_route;
+module.exports = router;
