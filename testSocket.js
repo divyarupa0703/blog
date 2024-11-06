@@ -20,5 +20,5 @@ socket.on('receiveComment', (comment) => {
 });
 
 socket.on('disconnect', () => {
-    console.log('Disconnected from the server');
+    console.log('Disconnected from the server'); // 
 });
