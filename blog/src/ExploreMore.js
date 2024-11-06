@@ -6,7 +6,7 @@ function ExploreMore() {
       {/* Image with full width */}
       <div style={{ position: 'relative', textAlign: 'center' }}>
         <img 
-          src={`${process.env.PUBLIC_URL}/srinagar.jpg`} 
+          src={`${process.env.PUBLIC_URL}/srinagar.jpg`}   
           alt="Beautiful view of Srinagar, Kashmir" 
           style={{ width: '100%', height: 'auto', display: 'block' }} 
         />
@@ -18,10 +18,10 @@ function ExploreMore() {
             transform: 'translateX(-50%)', 
             fontSize: '60px', 
             fontWeight: '700', 
-            color: '#FFFFFF',
+            color: '#FFD700',
             fontFamily: '"Montserrat", sans-serif', 
             letterSpacing: '2px', 
-            textShadow: '2px 2px 10px rgba(0, 0, 0, 0.7)', 
+            textShadow: '2px 2px 10px rgba(0, 0, 0, 0.9)', 
             textTransform: 'uppercase', 
           }}>
           SRINAGAR
@@ -53,7 +53,6 @@ function ExploreMore() {
         journey that lingers in the hearts of all who visit.
       </p>
 
-      {/* Explore More Section */}
       <div style={{
         backgroundColor: '#F9F9F6', 
         padding: '50px 0', 
@@ -74,6 +73,7 @@ function ExploreMore() {
           justifyContent: 'center', 
           gap: '20px',
           padding: '0 30px',
+          flexWrap: 'wrap',
         }}>
           {/* Card 1 */}
           <div style={{
@@ -116,7 +116,7 @@ function ExploreMore() {
             overflow: 'hidden',
           }}>
             <img 
-              src={`${process.env.PUBLIC_URL}/indiragandhi.jpg`} 
+              src={`${process.env.PUBLIC_URL}/indiragandhi.jpg`}  
               alt="Indira Gandhi Memorial Tulip Garden" 
               style={{ width: '100%', height: '200px', objectFit: 'cover' }} 
             />
@@ -127,7 +127,7 @@ function ExploreMore() {
                 color: '#333333', 
                 marginBottom: '10px',
               }}>
-                Indira Gandhi Memorial Tulip Garden &gt;
+                Indira Gandhi Memorial Tulip Garden  &gt;
               </h3>
               <p style={{
                 fontSize: '14px', 
@@ -148,7 +148,7 @@ function ExploreMore() {
             overflow: 'hidden',
           }}>
             <img 
-              src={`${process.env.PUBLIC_URL}/shamirbaug.jpg`} 
+              src={`${process.env.PUBLIC_URL}/shamirbaug.jpg`}
               alt="Shalimar Bagh" 
               style={{ width: '100%', height: '200px', objectFit: 'cover' }} 
             />
@@ -159,7 +159,7 @@ function ExploreMore() {
                 color: '#333333', 
                 marginBottom: '10px',
               }}>
-                Shalimar Bagh &gt;
+                Shalimar Bagh  &gt;
               </h3>
               <p style={{
                 fontSize: '14px', 
@@ -171,41 +171,83 @@ function ExploreMore() {
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Apple Orchards Section */}
-      <div style={{
-        position: 'relative', 
-        marginTop: '50px',
-      }}>
-        <img 
-          src={`${process.env.PUBLIC_URL}/apple.jpg`} 
-          alt="Apple Orchards in Kashmir" 
-          style={{ width: '100%', height: 'auto', maxWidth: '800px', borderRadius: '8px' }} 
-        />
+        {/* Apple Orchards Section */}
         <div style={{
-          position: 'absolute', 
-          top: '10%', 
-          right: '12%', 
-          backgroundColor: 'rgba(255, 255, 255, 0.8)', 
-          padding: '20px', 
-          borderRadius: '10px',
-          boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)',
-          textAlign: 'left',
-          maxWidth: '250px',
+          position: 'relative', 
+          marginTop: '50px',
         }}>
-          <h3 style={{ fontSize: '24px', color: '#333', fontWeight: 'bold', marginBottom: '10px' }}>Description</h3>
-          <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6' }}>
-            Srinagar is famous for its apple orchards, especially during the harvest season.
-          </p>
-          <h4 style={{ fontSize: '18px', color: '#333', fontWeight: 'bold', marginTop: '20px' }}>Activities</h4>
-          <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6' }}>
-            Visit the orchards to see the apple-picking process and enjoy the scenic beauty.
-          </p>
-          <h4 style={{ fontSize: '18px', color: '#333', fontWeight: 'bold', marginTop: '20px' }}>Best Time to Visit</h4>
-          <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6' }}>
-            September to October during the harvest season.
-          </p>
+          <img 
+            src={`${process.env.PUBLIC_URL}/apple.jpg`} 
+            alt="Apple Orchards in Kashmir" 
+            style={{ width: '100%', height: '500px', maxWidth: '800px', borderRadius: '8px' }} 
+          />
+          <div style={{
+            position: 'absolute', 
+            top: '10%', 
+            right: '12%', 
+            backgroundColor: 'rgba(255, 255, 255, 0.8)', 
+            padding: '20px', 
+            borderRadius: '10px',
+            boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)',
+            textAlign: 'left',
+            maxWidth: '250px',
+          }}>
+            <h3 style={{ 
+              fontSize: '24px', 
+              color: '#333', 
+              fontWeight: 'bold', 
+              marginBottom: '10px',
+            }}>
+              Description
+            </h3>
+            <p style={{
+              fontSize: '14px', 
+              color: '#666', 
+              lineHeight: '1.6',
+            }}>
+              Srinagar is famous for its apple orchards, especially during the harvest season.
+            </p>
+          </div>
+        </div>
+
+        {/* Dachigam National Park Section with Box on the Left */}
+        <div style={{
+          position: 'relative', 
+          marginTop: '70px',
+        }}>
+          <img 
+            src={`${process.env.PUBLIC_URL}/dachigam.jpg`} 
+            alt="Dachigam National Park" 
+            style={{ width: '100%', height: '500px', maxWidth: '800px', borderRadius: '8px' }} 
+          />
+          <div style={{
+            position: 'absolute', 
+            top: '10%', 
+            left: '12%', 
+            backgroundColor: 'rgba(255, 255, 255, 0.8)', 
+            padding: '20px', 
+            borderRadius: '10px',
+            boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)',
+            textAlign: 'left',
+            maxWidth: '250px',
+          }}>
+            <h3 style={{ 
+              fontSize: '24px', 
+              color: '#333', 
+              fontWeight: 'bold', 
+              marginBottom: '10px',
+            }}>
+              Description
+            </h3>
+            <p style={{
+              fontSize: '14px', 
+              color: '#666', 
+              lineHeight: '1.6',
+            }}>
+              A national park known for its rich biodiversity, including the endangered Hangul deer.
+            </p>
+          </div>
         </div>
       </div>
     </div>
