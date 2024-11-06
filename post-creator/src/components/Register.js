@@ -1,5 +1,4 @@
-// src/components/Register.js
-
+// components/Register.js
 import React, { useState } from 'react';
 import axios from 'axios';
 
@@ -7,7 +6,6 @@ const Register = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [role, setRole] = useState('admin'); // Default to admin
 
     const handleRegister = async (e) => {
         e.preventDefault();
@@ -16,9 +14,10 @@ const Register = () => {
                 username,
                 email,
                 password,
-                role,
             });
-            alert(response.data.message); // Show success message
+            alert(response.data.message);
+            // Redirect to login after successful registration
+            window.location.href = '/login';
         } catch (error) {
             console.error(error);
             alert(error.response.data.message || "Error registering");
@@ -27,7 +26,7 @@ const Register = () => {
 
     return (
         <div>
-            <h2></h2>
+            <h2>Register</h2>
             <form onSubmit={handleRegister}>
                 <div>
                     <label>Username:</label>
@@ -57,6 +56,9 @@ const Register = () => {
                     />
                 </div>
                 <button type="submit">Register</button>
+                <p>
+                    Already have an account? <a href="/login">Login here</a>
+                </p>
             </form>
         </div>
     );

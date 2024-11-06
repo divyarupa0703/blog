@@ -1,50 +1,36 @@
-// src/components/PostList.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const PostList = () => {
     const [posts, setPosts] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState('');
-
-    const fetchPosts = async () => {
-        try {
-            const response = await axios.get('http://localhost:8000/api/posts'); // Adjust the API URL accordingly
-            setPosts(response.data.posts); // Assuming your API returns posts in this structure
-        } catch (error) {
-            setError(error.response?.data?.message || 'Error fetching posts');
-        } finally {
-            setLoading(false);
-        }
-    };
 
     useEffect(() => {
+        const fetchPosts = async () => {
+            try {
+                const response = await axios.get('http://localhost:8000/api/posts');
+                setPosts(response.data);
+            } catch (error) {
+                console.error("Error fetching posts:", error);
+            }
+        };
         fetchPosts();
     }, []);
 
-    if (loading) {
-        return <p>Loading posts...</p>;
-    }
-
-    if (error) {
-        return <p>{error}</p>;
-    }
-
     return (
         <div>
-            <h2>Post List</h2>
-            {posts.length === 0 ? (
-                <p>No posts available.</p>
-            ) : (
-                <ul>
-                    {posts.map((post) => (
-                        <li key={post.id}>
-                            <h3>{post.title}</h3>
-                            <p>{post.content}</p>
-                        </li>
-                    ))}
-                </ul>
-            )}
+            <h2>Blog Posts</h2>
+            {posts.map(post => (
+                <div key={post._id} style={{ border: '1px solid #ccc', margin: '10px', padding: '10px' }}>
+                    <h3>{post.content_title}</h3>
+                    <img src={post.content_image} alt={post.content_title} style={{ width: '100px', height: 'auto' }} />
+                    <p>{post.content_title.slice(0, 100)}...</p> {/* Assuming a short preview is fine */}
+                    <div>
+                        <span>Tags: {post.tags.map(tag => tag.name).join(', ')}</span>
+                        <span> | Date: {new Date(post.date).toLocaleDateString()}</span>
+                        <span> | Likes: {post.no_of_likes}</span>
+                    </div>
+                </div>
+            ))}
         </div>
     );
 };
