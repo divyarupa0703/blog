@@ -4,6 +4,12 @@ import ExploreMore from './ExploreMore';
 import Gulmarg from './Gulmarg';
 import Pahalgam from './Pahalgam';
 import './NavBar.css';
+import Restaurants from './restaurants';
+import FineDining from './fineDining';
+import StreetFood from './streetFood';
+import CasualDining from './casualDining';
+import KashmirEvents from './events';
+import KashmirSpecialEvents from './festivals';
 
 const App = () => {
   const [hoveredItem, setHoveredItem] = useState(null);
@@ -56,6 +62,12 @@ const App = () => {
           <Route path="/exploremore" element={<ExploreMore />} />
           <Route path="/gulmarg" element={<Gulmarg />} />
           <Route path="/pahalgam" element={<Pahalgam />} />
+          <Route path="/restaurants" element={<Restaurants />} />
+          <Route path="/fine-dining" element={<FineDining />} />
+          <Route path="/casual-dining" element={<CasualDining />} />
+          <Route path="/street-food" element={<StreetFood />} />
+          <Route path="/events" element={<KashmirEvents />} />
+          <Route path="/festivals" element={<KashmirSpecialEvents />} />
         </Routes>
       </div>
     </Router>
