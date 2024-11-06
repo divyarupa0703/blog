@@ -138,3 +138,75 @@ exports.deletePost = async (req, res) => {
         });
     }
 };
+
+// Like a post
+exports.likePost = async (req, res) => {
+    const { id } = req.params; // The post ID from the URL
+    const { user_id } = req.body; // The user liking the post
+
+    try {
+        const post = await Post.findById(id);
+
+        if (!post) {
+            return res.status(404).json({ message: "Post not found" });
+        }
+
+        // Check if the user already liked the post
+        if (post.likes.includes(user_id)) {
+            return res.status(400).json({
+                message: "You already liked this post"
+            });
+        }
+
+        // Add the user to the likes array
+        post.likes.push(user_id);
+
+        // Save the updated post
+        const updatedPost = await post.save();
+
+        res.status(200).json({
+            message: "Post liked successfully",
+            post: updatedPost
+        });
+    } catch (error) {
+        res.status(500).json({
+            message: "Error liking post",
+            error: error.message
+        });
+    }
+};
+
+// Unlike a post
+exports.unlikePost = async (req, res) => {
+    const { id } = req.params; // The post ID from the URL
+    const { user_id } = req.body; // The user unliking the post
+
+    try {
+        const post = await Post.findById(id);
+
+        if (!post) {
+            return res.status(404).json({ message: "Post not found" });
+        }
+
+        // Check if the user has already liked the post
+        if (!post.likes.includes(user_id)) {
+            return res.status(400).json({ message: "You haven't liked this post" });
+        }
+
+        // Remove the user from the likes array
+        post.likes = post.likes.filter(like => !like.equals(user_id));
+
+        // Save the updated post
+        const updatedPost = await post.save();
+
+        res.status(200).json({
+            message: "Post unliked successfully",
+            post: updatedPost
+        });
+    } catch (error) {
+        res.status(500).json({
+            message: "Error unliking post",
+            error: error.message
+        });
+    }
+};

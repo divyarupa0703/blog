@@ -32,6 +32,10 @@ const PostSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Tag' // Reference to Tag model
     }],
+    likes: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User' // Storing user IDs who liked the post
+    }],
     date: {
         type: Date,
         default: Date.now
