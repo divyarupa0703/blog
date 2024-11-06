@@ -23,5 +23,8 @@ router.get('/posts', postController.getAllPosts); // For retrieving all posts
 router.get('/posts/:id', postController.getPostById); // For retrieving a specific post by ID
 router.put('/posts/:id', postController.updatePost); // For updating a specific post by ID
 router.delete('/posts/:id', postController.deletePost); // For deleting a specific post by ID
-
+// Like a post
+router.post('/:id/like', postController.likePost);
+// Unlike a post
+router.post('/:id/unlike', postController.unlikePost);
 module.exports = router;
