@@ -27,26 +27,6 @@ function Gulmarg() {
           GULMARG
         </h1>
         </div>
-
-        {/* Styled paragraph below the image */}
-      <p style={{
-          fontSize: '18px', 
-          lineHeight: '1.8', 
-          color: '#333', 
-          margin: '40px auto', 
-          textAlign: 'left',
-          maxWidth: '800px', 
-          padding: '0 30px', 
-          fontFamily: '"Georgia", serif', 
-        }}>
-        Pahalgam, often referred to as the "Valley of Shepherds," is a picturesque town nestled in the Anantnag district of Kashmir, 
-        surrounded by the majestic Himalayas and lush green landscapes. Located at the confluence of the Lidder River and the Sheshnag Lake, 
-        Pahalgam is a true paradise for nature lovers and adventure seekers alike.
-        <br /><br />
-        Whether you are trekking through its verdant meadows, skiing down snow-covered slopes, or simply soaking in the serene ambiance by the river,
-        Pahalgam promises an unforgettable journey that lingers in the hearts of all who visit. 
-      </p>
-
   
         {/* Container for cards */}
         <div style={{
