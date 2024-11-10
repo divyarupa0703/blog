@@ -211,27 +211,18 @@ const PostList = () => {
 const SinglePost = () => {
     const { postId } = useParams();
     const [post, setPost] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchPost = async () => {
             try {
                 const response = await axios.get(`http://localhost:8000/api/posts/${postId}`);
                 setPost(response.data);
-                setLoading(false);
             } catch (error) {
                 console.error("Error fetching the post:", error);
-                setError('Failed to load post.');
-                setLoading(false);
             }
         };
-
         fetchPost();
     }, [postId]);
-
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>{error}</p>;
 
     return post ? (
         <div>
@@ -243,13 +234,12 @@ const SinglePost = () => {
                 <span> | Date: {new Date(post.date).toLocaleDateString()}</span>
                 <span> | Likes: {post.no_of_likes}</span>
             </div>
-            <p>{post.user_id.username}</p>
+            <p>Posted by: {post.user_id?.username}</p> {/* Ensure user_id is defined */}
         </div>
     ) : (
-        <p>Post not found.</p>
+        <p>Loading...</p>
     );
 };
-
 
 
 
