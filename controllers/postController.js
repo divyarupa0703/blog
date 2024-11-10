@@ -7,7 +7,8 @@ const Tag = require('../models/tagModel');
 exports.createPost = async (req, res) => {
     try {
         const { user_id, content_title, tags } = req.body;
-        const content_image = req.file?.path; // Use optional chaining
+        //const content_image = req.file?.path; // Use optional chaining
+        const content_image = req.file ? `/postImages/${req.file.filename}` : null; // Store the relative path
 
         if (!content_image) {
             return res.status(400).json({ message: "Image upload required." });

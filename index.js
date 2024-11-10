@@ -24,6 +24,7 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
 
 // Serve static files
 app.use('/public', express.static(path.join(__dirname, 'public')));
+//app.use('/postImages', express.static(path.join(__dirname, '../post-creator/public/postImages')));
 
 // Import and use routes
 const postRouter = require('./routes/postRoute.js');

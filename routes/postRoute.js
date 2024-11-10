@@ -8,7 +8,7 @@ const router = express.Router();
 // Configure multer for file uploads
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, path.join(__dirname, '../public/postImages')); // Ensure this directory exists
+        cb(null, path.join(__dirname, '../post-creator/public/postImages')); // Ensure this directory exists
     },
     filename: function (req, file, cb) {
         const uniqueName = Date.now() + '-' + file.originalname;
