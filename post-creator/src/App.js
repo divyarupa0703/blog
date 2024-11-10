@@ -277,7 +277,7 @@ const SinglePost = () => {
                 setComments(response.data.comments || []);  // Set the comments
             } catch (error) {
                 console.error("Error fetching comments:", error.response ? error.response.data : error.message);
-                setError("Failed to load comments.");
+               // setError("Failed to load comments.");
             }
         };
        
