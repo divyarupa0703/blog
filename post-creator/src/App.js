@@ -228,7 +228,12 @@ const PostList = () => {
                             {post.content_title}
                         </Link>
                     </h3>
-                    <img src={post.content_image} alt={post.content_title} style={{ width: '100px', height: 'auto' }} />
+                    <img
+                        src={`${process.env.PUBLIC_URL}${post.content_image}`}
+                        alt={post.content_title}
+                        style={{ width: '100px', height: 'auto' }}
+                    />
+                    
                     <p>{post.content_title.slice(0, 100)}...</p>
                     <div>
                         <span>Tags: {post.tags.map(tag => tag.name).join(', ')}</span>
@@ -338,19 +343,19 @@ const SinglePost = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
 
-  return post ? (
-      <div>
-          <h2>{post.content_title}</h2>
-          <img
-              src={post.content_image}
-              alt={post.content_title}
-              style={{ width: '300px', height: 'auto' }}
-          />
-          <p>{post.content_title}</p>
-          <p>{new Date(post.date).toLocaleString()}</p>
-          <div>Tags: {post.tags.map(tag => tag.name).join(', ')}</div>
-          <p>Likes: {post.no_of_likes}</p>
-          <button onClick={handleLike}>Like</button>
+    return post ? (
+        <div>
+            <h2>{post.content_title}</h2>
+            <img
+                src={`${process.env.PUBLIC_URL}${post.content_image}`}
+                alt={post.content_title}
+                style={{ width: '300px', height: 'auto' }}
+            />
+            <p>{post.content_title}</p>
+            <p>{new Date(post.date).toLocaleString()}</p>
+            <div>Tags: {post.tags.map(tag => tag.name).join(', ')}</div>
+            <p>Likes: {post.no_of_likes}</p>
+            <button onClick={handleLike}>Like</button>
 
           {/* Comment Section */}
           <div>
