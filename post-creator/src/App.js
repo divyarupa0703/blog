@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Link, useNavigate, useParams } 
 import axios from 'axios';
 import {jwtDecode} from 'jwt-decode';
 
+
 // Login Component
 const Login = ({ onLogin }) => {
     const [email, setEmail] = useState('');
@@ -252,32 +253,32 @@ const SinglePost = () => {
   const token = localStorage.getItem("token");
   const userId = token ? jwtDecode(token).id : null;
 
-  // Fetch post and comments on postId change
-  useEffect(() => {
-      const fetchPost = async () => {
-          try {
-              const response = await axios.get(`http://localhost:8000/api/posts/${postId}`);
-              setPost(response.data);
-              setLoading(false);
-          } catch (error) {
-              console.error("Error fetching the post:", error);
-              setError("Failed to load post.");
-              setLoading(false);
-          }
-      };
-      const fetchComments = async () => {
-          try {
-              const response = await axios.get(`http://localhost:8000/api/posts/${postId}/comments`);
-              setComments(response.data.comments || []);  // Set the comments
-          } catch (error) {
-              console.error("Error fetching comments:", error.response ? error.response.data : error.message);
-              setError("Failed to load comments.");
-          }
-      };
-     
-       fetchComments();
-      fetchPost();
-  }, [postId]);
+    // Fetch post and comments on postId change
+    useEffect(() => {
+        const fetchPost = async () => {
+            try {
+                const response = await axios.get(`http://localhost:8000/api/posts/${postId}`);
+                setPost(response.data);
+                setLoading(false);
+            } catch (error) {
+                console.error("Error fetching the post:", error);
+                setError("Failed to load post.");
+                setLoading(false);
+            }
+        };
+        const fetchComments = async () => {
+            try {
+                const response = await axios.get(`http://localhost:8000/api/posts/${postId}/comments`);
+                setComments(response.data.comments || []);  // Set the comments
+            } catch (error) {
+                console.error("Error fetching comments:", error.response ? error.response.data : error.message);
+                setError("Failed to load comments.");
+            }
+        };
+       
+         fetchComments();
+        fetchPost();
+    }, [postId]);
 
   // Function to handle like button click
   const handleLike = async () => {
