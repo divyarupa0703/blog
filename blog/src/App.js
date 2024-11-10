@@ -3,13 +3,16 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import ExploreMore from './ExploreMore';
 import Gulmarg from './Gulmarg';
 import Pahalgam from './Pahalgam';
-import './NavBar.css';
 import Restaurants from './restaurants';
 import FineDining from './fineDining';
 import StreetFood from './streetFood';
 import CasualDining from './casualDining';
 import KashmirEvents from './events';
 import KashmirSpecialEvents from './festivals';
+
+import './NavBar.css';
+import CabinsAndCottages from './CabinsAndCottages';
+import PlacesToEat from './PlacesToEat';
 
 const App = () => {
   const [hoveredItem, setHoveredItem] = useState(null);
@@ -37,6 +40,7 @@ const App = () => {
 
           {menuVisible && (
             <div className="menu">
+              {/* Popular Destinations */}
               <div
                 className="nav-item-container"
                 onMouseEnter={() => handleMouseEnter('Popular Destinations')}
@@ -51,8 +55,53 @@ const App = () => {
                   </div>
                 )}
               </div>
-              
-              {/* Add other menu items (Things to Do, Events, etc.) as needed */}
+
+              {/* Places to Stay */}
+              <div
+                className="nav-item-container"
+                onMouseEnter={() => handleMouseEnter('Places to Stay')}
+                onMouseLeave={handleMouseLeave}
+              >
+                <div className="nav-item">Places to Stay</div>
+                {hoveredItem === 'Places to Stay' && (
+                  <div className="dropdown-content">
+                    <Link to="/cabins">CabinsAndCottages</Link>
+                    <Link to="/eat">PlacesToEat</Link>
+                  </div>
+                )}
+              </div>
+
+              {/* Places to Eat */}
+              <div
+                className="nav-item-container"
+                onMouseEnter={() => handleMouseEnter('Places to Eat')}
+                onMouseLeave={handleMouseLeave}
+              >
+                <div className="nav-item">Places to Eat</div>
+                {hoveredItem === 'Places to Eat' && (
+                  <div className="dropdown-content">
+                    <Link to="/restaurants">Restaurants</Link>
+                    <Link to="/fine-dining">Fine Dining</Link>
+                    <Link to="/casual-dining">Casual Dining</Link>
+                    <Link to="/street-food">Street Food</Link>
+                  </div>
+                )}
+              </div>
+
+              {/* Things to Do */}
+              <div
+                className="nav-item-container"
+                onMouseEnter={() => handleMouseEnter('Things to Do')}
+                onMouseLeave={handleMouseLeave}
+              >
+                <div className="nav-item">Things to Do</div>
+                {hoveredItem === 'Things to Do' && (
+                  <div className="dropdown-content">
+                    <Link to="/events">Events</Link>
+                    <Link to="/festivals">Festivals</Link>
+                  </div>
+                )}
+              </div>
             </div>
           )}
         </div>
@@ -68,6 +117,8 @@ const App = () => {
           <Route path="/street-food" element={<StreetFood />} />
           <Route path="/events" element={<KashmirEvents />} />
           <Route path="/festivals" element={<KashmirSpecialEvents />} />
+          <Route path="/cabins" element={<CabinsAndCottages />} />
+          <Route path="/eat" element={<PlacesToEat />} />
         </Routes>
       </div>
     </Router>
