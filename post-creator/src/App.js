@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Link, useNavigate, useParams } 
 import axios from 'axios';
 import {jwtDecode} from 'jwt-decode';
 
+
 // Login Component
 const Login = ({ onLogin }) => {
     const [email, setEmail] = useState('');
@@ -51,45 +52,64 @@ const Login = ({ onLogin }) => {
 
 // Register Component
 const Register = () => {
+    const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const navigate = useNavigate();
-    const [error, setError] = useState('');
 
-    // Handle registration form submission
     const handleRegister = async (e) => {
         e.preventDefault();
         try {
-            // Send registration request to the backend
-            await axios.post('http://localhost:8000/api/users/register', { 
-                email, 
-                password 
+            const response = await axios.post('http://localhost:8000/api/users/signup', {
+                username,
+                email,
+                password,
             });
-            navigate('/login');  // Redirect to login page after successful registration
+            alert(response.data.message);
+            // Redirect to login after successful registration
+            window.location.href = '/login';
         } catch (error) {
-            setError('Registration failed. Please try again.'); // Show error message if registration fails
+            console.error(error);
+            alert(error.response.data.message || "Error registering");
         }
     };
 
     return (
-        <form onSubmit={handleRegister}>
-            <input 
-                type="email" 
-                placeholder="Email" 
-                value={email} 
-                onChange={(e) => setEmail(e.target.value)} 
-                required 
-            />
-            <input 
-                type="password" 
-                placeholder="Password" 
-                value={password} 
-                onChange={(e) => setPassword(e.target.value)} 
-                required 
-            />
-            <button type="submit">Register</button>
-            {error && <p style={{ color: 'red' }}>{error}</p>}  {/* Display error message */}
-        </form>
+        <div>
+            <h2>Register</h2>
+            <form onSubmit={handleRegister}>
+                <div>
+                    <label>Username:</label>
+                    <input
+                        type="text"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        required
+                    />
+                </div>
+                <div>
+                    <label>Email:</label>
+                    <input
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
+                </div>
+                <div>
+                    <label>Password:</label>
+                    <input
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                </div>
+                <button type="submit">Register</button>
+                <p>
+                    Already have an account? <a href="/login">Login here</a>
+                </p>
+            </form>
+        </div>
     );
 };
 
@@ -252,7 +272,7 @@ const SinglePost = () => {
                 setComments(response.data.comments || []);  // Set the comments
             } catch (error) {
                 console.error("Error fetching comments:", error.response ? error.response.data : error.message);
-                setError("Failed to load comments.");
+                //setError("Failed to load comments.");
             }
         };
        
