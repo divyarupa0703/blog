@@ -121,7 +121,7 @@ function Pahalgam() {
                 color: '#333333', 
                 marginBottom: '10px',
               }}>
-                Skiing and Snowboarding &gt;
+                Chandanwari &gt;
               </h3>
               <p style={{
                 fontSize: '14px', 
@@ -153,7 +153,7 @@ function Pahalgam() {
                 color: '#333333', 
                 marginBottom: '10px',
               }}>
-                Apharwat Peak &gt;
+                Betaab &gt;
               </h3>
               <p style={{
                 fontSize: '14px', 
