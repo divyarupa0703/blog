@@ -89,9 +89,19 @@ app.post('/api/posts/:postId/like', async (req, res) => {
 // Add a comment to a post
 app.post('/api/posts/:postId/comment', async (req, res) => {
     const { postId } = req.params;
-    const { userId, content } = req.body; // userId and content should be passed in the request body
+    const { userId, content } = req.body;
+
+    if (!userId || !content) {
+        return res.status(400).json({ error: 'userId and content are required' });
+    }
 
     try {
+        // Check if the post exists
+        const postExists = await Post.findById(postId);
+        if (!postExists) {
+            return res.status(404).json({ error: 'Post not found' });
+        }
+
         // Create a new comment
         const newComment = new Comment({
             content,
@@ -103,19 +113,26 @@ app.post('/api/posts/:postId/comment', async (req, res) => {
         await newComment.save();
 
         // Add the comment to the post
-        const post = await Post.findByIdAndUpdate(
+        const updatedPost = await Post.findByIdAndUpdate(
             postId,
-            { $push: { comments: newComment._id } }, // Add the comment ID to the post's comments array
+            { $push: { comments: newComment._id } },
             { new: true }
-        );
+        ).populate({
+            path: 'comments',
+            populate: {
+                path: 'user_id',
+               // Assuming the user has a 'username' field
+            }
+        });
 
-        // Send the response with the new comment
-        res.status(201).json({ message: 'Comment added successfully', post });
+        // Send the response with the updated post and populated comments
+        res.status(201).json({ message: 'Comment added successfully', post: updatedPost });
     } catch (err) {
         console.error(err);
         res.status(500).json({ error: 'Server error' });
     }
 });
+
 
 app.get('/api/posts/:postId/comments', async (req, res) => {
     const { postId } = req.params;
@@ -123,7 +140,6 @@ app.get('/api/posts/:postId/comments', async (req, res) => {
     try {
         // Fetch comments for the specific postId
         const comments = await Comment.find({ post_id: postId })
-            .populate('user_id', 'username name')  // Populate user info
             .sort({ createdAt: 1 });  // Sort by creation date
 
         if (!comments || comments.length === 0) {
@@ -135,14 +151,77 @@ app.get('/api/posts/:postId/comments', async (req, res) => {
             comments: comments.map(comment => ({
                 id: comment._id,
                 content: comment.content,
-                userId: comment.user_id._id,
-                username: comment.user_id.username, // Assuming 'username' exists in 'User' model
+                userId: comment.user_id, // Only exposing userId
                 createdAt: comment.createdAt,
             })),
         });
     } catch (error) {
         console.error("Error fetching comments:", error);
         res.status(500).json({ message: 'Internal Server Error' });
+    }
+});
+
+
+// Update a comment
+app.put('/api/comments/:commentId', async (req, res) => {
+    const { commentId } = req.params;  // The comment ID from the URL
+    const { content } = req.body;     // The updated content for the comment
+
+    try {
+        // Find the comment by its ID
+        const comment = await Comment.findById(commentId);
+        if (!comment) {
+            return res.status(404).json({ message: "Comment not found" });
+        }
+
+        // Check if the user updating the comment is the one who posted it
+        if (comment.user_id.toString() !== req.body.userId) {
+            return res.status(403).json({ message: "You are not authorized to update this comment" });
+        }
+
+        // Update the content of the comment
+        comment.content = content;
+        await comment.save();
+
+        // Respond with the updated comment
+        res.status(200).json({ message: "Comment updated successfully", comment });
+    } catch (err) {
+        console.error("Error in updateComment:", err);
+        res.status(500).json({ message: "Error updating comment", error: err.message });
+    }
+});
+
+// Delete a comment
+app.delete('/api/comments/:commentId', async (req, res) => {
+    const { commentId } = req.params;  // The comment ID from the URL
+
+    try {
+        // Find the comment by its ID
+        const comment = await Comment.findById(commentId);
+        if (!comment) {
+            return res.status(404).json({ message: "Comment not found" });
+        }
+
+        // Check if the user deleting the comment is the one who posted it
+        if (comment.user_id.toString() !== req.body.userId) {
+            return res.status(403).json({ message: "You are not authorized to delete this comment" });
+        }
+
+        // Delete the comment from the database
+        await comment.remove();
+
+        // Remove the comment from the associated post's comments array
+        await Post.findByIdAndUpdate(
+            comment.post_id,
+            { $pull: { comments: commentId } },  // Pull the comment from the comments array
+            { new: true }
+        );
+
+        // Respond with a success message
+        res.status(200).json({ message: "Comment deleted successfully" });
+    } catch (err) {
+        console.error("Error in deleteComment:", err);
+        res.status(500).json({ message: "Error deleting comment", error: err.message });
     }
 });
 

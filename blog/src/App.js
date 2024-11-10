@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import ExploreMore from './ExploreMore';
-import Gulmarg from './Gulmarg';
+import ExploreMore from '../../post-creator/src/ExploreMore';
+import Gulmarg from '../../post-creator/src/Gulmarg';
 import Pahalgam from './Pahalgam';
 import Restaurants from './restaurants';
 import FineDining from './fineDining';

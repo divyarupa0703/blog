@@ -9,31 +9,36 @@ const CreatePost = () => {
     const [contentImage, setContentImage] = useState(null);
     const [tags, setTags] = useState(['']);
     const navigate = useNavigate();
+    const [error, setError] = useState('');
 
+    // Handle image file change
     const handleImageChange = (e) => {
         setContentImage(e.target.files[0]);
     };
 
+    // Handle changes to tags input
     const handleTagChange = (e, index) => {
         const newTags = [...tags];
         newTags[index] = e.target.value;
         setTags(newTags);
     };
 
+    // Add a new empty tag input field
     const addTag = () => {
         setTags([...tags, '']);
     };
 
+    // Handle post form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+
         const token = localStorage.getItem('token');
         if (!token) {
-            alert('You need to be logged in to create a post.');
-            return;
+            setError('You need to be logged in to create a post.');
+            return;  // Stop if the user is not logged in
         }
 
-        const userId = jwtDecode(token).id;
+        const userId = jwtDecode(token).id;  // Decode the JWT to get the user ID
         const formData = new FormData();
         formData.append('content_title', contentTitle);
         formData.append('content_image', contentImage);
@@ -41,17 +46,18 @@ const CreatePost = () => {
         tags.forEach(tag => formData.append('tags', tag));
 
         try {
+            // Send request to create a new post
             const response = await axios.post('http://localhost:8000/api/posts', formData, {
                 headers: {
-                    'Authorization': `Bearer ${token}`,
-                    'Content-Type': 'multipart/form-data',
+                    'Authorization': `Bearer ${token}`,  // Include token in the request header
+                    'Content-Type': 'multipart/form-data',  // Set the appropriate content type
                 }
             });
             alert('Post created successfully!');
-            navigate('/'); // Redirect to home or another page
+            navigate('/'); // Redirect to home or another page after successful post creation
         } catch (error) {
             console.error("Error creating post:", error.response || error);
-            alert('Failed to create post. ' + (error.response ? error.response.data.message : ''));
+            setError('Failed to create post. ' + (error.response ? error.response.data.message : '')); // Show error message
         }
     };
 
@@ -80,6 +86,7 @@ const CreatePost = () => {
             ))}
             <button type="button" onClick={addTag}>Add Tag</button>
             <button type="submit">Create Post</button>
+            {error && <p style={{ color: 'red' }}>{error}</p>}  {/* Display error message */}
         </form>
     );
 };
