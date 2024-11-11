@@ -15,7 +15,7 @@ function ExploreMore() {
         fontWeight: 'bold', 
         marginBottom: '40px',
       }}>
-        EXPLORE MORE IN GULMARG
+        EXPLORE MORE IN G
       </h2>
 
       {/* Container for cards */}
@@ -35,7 +35,7 @@ function ExploreMore() {
           overflow: 'hidden',
         }}>
           <img 
-            src={`${process.env.PUBLIC_URL}/gulmarg.jpg`} 
+            src={`${process.env.PUBLIC_URL}/Aru Valley.jpg`} 
             alt="Pari Mahal" 
             style={{ width: '100%', height: '200px', objectFit: 'cover' }} 
           />
@@ -46,14 +46,14 @@ function ExploreMore() {
               color: '#333333', 
               marginBottom: '10px',
             }}>
-              Gulmarg Gondola &gt;
+              Aru Valley &gt;
             </h3>
             <p style={{
               fontSize: '14px', 
               color: '#666666', 
               lineHeight: '1.6',
             }}>
-              Experience the thrill of riding the Gulmarg Gondola, one of the highest and longest cable cars in the world.
+              Located about 11 km from Pahalgam, Aru Valley is a serene spot known for its breathtaking landscapes and serves as a base for various treks.
             </p>
           </div>
         </div>
@@ -67,7 +67,7 @@ function ExploreMore() {
           overflow: 'hidden',
         }}>
           <img 
-            src={`${process.env.PUBLIC_URL}/skiing.jpg`} 
+            src={`${process.env.PUBLIC_URL}/Chandanwari.jpg`}  
             alt="Indira Gandhi Memorial Tulip Garden" 
             style={{ width: '100%', height: '200px', objectFit: 'cover' }} 
           />
@@ -85,7 +85,7 @@ function ExploreMore() {
               color: '#666666', 
               lineHeight: '1.6',
             }}>
-              Gulmarg is renowned for its pristine slopes, making it a premier destination for skiing and snowboarding.
+              Situated at an elevation of 2,895 meters, Chandanwari is the starting point for the Amarnath Yatra and offers stunning views of the surrounding mountains.
             </p>
           </div>
         </div>
@@ -99,7 +99,7 @@ function ExploreMore() {
           overflow: 'hidden',
         }}>
           <img 
-            src={`${process.env.PUBLIC_URL}/apharwat.jpg`} 
+            src={`${process.env.PUBLIC_URL}/Betaab.jpg`}
             alt="Shalimar Bagh" 
             style={{ width: '100%', height: '200px', objectFit: 'cover' }} 
           />
@@ -117,7 +117,7 @@ function ExploreMore() {
               color: '#666666', 
               lineHeight: '1.6',
             }}>
-              A majestic peak offering panoramic views of the surrounding mountains.
+               Named after a Bollywood film, this valley is surrounded by deodar trees and offers picturesque views, making it a popular spot for tourists.
             </p>
           </div>
         </div>
@@ -129,14 +129,14 @@ function ExploreMore() {
         marginTop: '50px',
       }}>
         <img 
-          src={`${process.env.PUBLIC_URL}/st mary.jpg`} 
+          src={`${process.env.PUBLIC_URL}/Mamleshwar.jpg`} 
           alt="Apple Orchards in Kashmir" 
           style={{ width: '100%', height: '500px', maxWidth: '800px', borderRadius: '8px' }} 
         />
         <div style={{
           position: 'absolute', 
-          top: '20%', 
-          right: '10%', 
+          top: '10%', 
+          right: '12%', 
           backgroundColor: 'rgba(255, 255, 255, 0.8)', 
           padding: '20px', 
           borderRadius: '10px',
@@ -150,14 +150,14 @@ function ExploreMore() {
             fontWeight: 'bold', 
             marginBottom: '10px',
           }}>
-            St. Mary’s Church
+            Mamleshwar Temple 
           </h3>
           <p style={{
             fontSize: '14px', 
             color: '#666', 
             lineHeight: '1.6',
           }}>
-            St. Mary’s Church in Gulmarg is a beautiful Victorian-style church surrounded by stunning natural scenery.
+            Mamleshwar Temple is a historic Hindu temple in Kashmir known for its ancient architecture and spiritual significance.
           </p>
           <h4 style={{
             fontSize: '18px', 
@@ -172,7 +172,7 @@ function ExploreMore() {
             color: '#666', 
             lineHeight: '1.6',
           }}>
-            Visitors can hike to the church, enjoy photography, and explore its historical significance.
+            Visitors can participate in rituals, explore cultural heritage, and enjoy photography of the temple and its surroundings.
           </p>
           <h4 style={{
             fontSize: '18px', 
@@ -187,7 +187,7 @@ function ExploreMore() {
             color: '#666', 
             lineHeight: '1.6',
           }}>
-            The best time to visit is from May to August for pleasant weather.
+            The best time to visit is from October to March for pleasant weather and vibrant spiritual activities.
           </p>
         </div>
       </div>
@@ -195,17 +195,17 @@ function ExploreMore() {
       {/* Dachigam National Park Section with Box on the Left */}
       <div style={{
         position: 'relative', 
-        marginTop: '50px',
+        marginTop: '70px', // Increased margin to avoid overlap
       }}>
         <img 
-          src={`${process.env.PUBLIC_URL}/biosphere reserve.jpg`} 
+          src={`${process.env.PUBLIC_URL}/Tulian lake.jpg`} 
           alt="Dachigam National Park" 
           style={{ width: '100%', height: '500px', maxWidth: '800px', borderRadius: '8px' }} 
         />
         <div style={{
           position: 'absolute', 
-          top: '20%', 
-          left: '10%', 
+          top: '10%', 
+          left: '12%', 
           backgroundColor: 'rgba(255, 255, 255, 0.8)', 
           padding: '20px', 
           borderRadius: '10px',
@@ -219,14 +219,14 @@ function ExploreMore() {
             fontWeight: 'bold', 
             marginBottom: '10px',
           }}>
-            Gulmarg Biosphere Reserve
+            Tulian Lake
           </h3>
           <p style={{
             fontSize: '14px', 
             color: '#666', 
             lineHeight: '1.6',
           }}>
-            Gulmarg Biosphere Reserve is a protected area known for its rich biodiversity, including various flora and fauna, set against the backdrop of the stunning Himalayas.
+            Tulian Lake is a stunning alpine lake situated at an altitude of 2,400 meters, offering breathtaking views and tranquility.
           </p>
           <h4 style={{
             fontSize: '18px', 
@@ -241,7 +241,7 @@ function ExploreMore() {
             color: '#666', 
             lineHeight: '1.6',
           }}>
-            Visitors can enjoy trekking, bird watching, and nature photography while exploring the diverse ecosystems within the reserve.
+            Ideal for trekking, photography, and camping, the lake provides a serene escape into nature.
           </p>
           <h4 style={{
             fontSize: '18px', 
@@ -256,7 +256,7 @@ function ExploreMore() {
             color: '#666', 
             lineHeight: '1.6',
           }}>
-            The ideal time to visit is from April to October, when the weather is mild and the flora is in full bloom.
+            The best time to visit is during the summer months from June to September for clear skies and pleasant weather.
           </p>
         </div>
       </div>

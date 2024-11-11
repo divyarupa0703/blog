@@ -6,7 +6,7 @@ function Gulmarg() {
       {/* Image with full width */}
       <div style={{ position: 'relative', textAlign: 'center' }}>
         <img 
-          src={`${process.env.PUBLIC_URL}/gulmargbg.jpg`}   
+          src={`${process.env.PUBLIC_URL}/gulmarg.jpg`}   
           alt="Beautiful view of Srinagar, Kashmir" 
           style={{ width: '100%', height: 'auto', display: 'block' }} 
         />
@@ -26,15 +26,52 @@ function Gulmarg() {
           }}>
           GULMARG
         </h1>
-        </div>
-  
-        {/* Container for cards */}
+      </div>
+      
+      {/* Styled paragraph below the image */}
+      <p style={{
+          fontSize: '18px', 
+          lineHeight: '1.8', 
+          color: '#333', 
+          margin: '40px auto', 
+          textAlign: 'left',
+          maxWidth: '800px', 
+          padding: '0 30px', 
+          fontFamily: '"Georgia", serif', 
+        }}>
+        Gulmarg, often referred to as the "Meadow of Flowers," is a breathtaking hill station
+        located in the Pir Panjal range of the Himalayas, just a short drive from Srinagar.
+        Renowned for its stunning natural beauty and idyllic landscapes, Gulmarg is a true gem of
+        Kashmir, captivating visitors with its lush green meadows, snow-capped mountains, and
+        vibrant wildflowers that bloom in the spring and summer months. 
+        <br /><br />
+        Gulmarg is a captivating destination that embodies the enchanting spirit of the Himalayas.
+        Whether you are skiing down the slopes, exploring the vibrant meadows, or simply soaking in the stunning views
+        Gulmarg promises an unforgettable journey that lingers in the hearts of all who visit,
+        making it a must-see destination in the beautiful region of Kashmir.
+      </p>
+
+      <div style={{
+        backgroundColor: '#F9F9F6', 
+        padding: '50px 0', 
+        textAlign: 'center', 
+        fontFamily: 'Georgia, serif',
+      }}>
+        <h2 style={{
+          fontSize: '32px', 
+          color: '#333333', 
+          fontWeight: 'bold', 
+          marginBottom: '40px',
+        }}>
+          EXPLORE MORE IN GULMARG
+        </h2>
+
         <div style={{
           display: 'flex', 
           justifyContent: 'center', 
           gap: '20px',
           padding: '0 30px',
-          flexWrap: 'wrap', // Added to allow wrapping on smaller screens
+          flexWrap: 'wrap',
         }}>
           {/* Card 1 */}
           <div style={{
@@ -67,7 +104,7 @@ function Gulmarg() {
               </p>
             </div>
           </div>
-  
+
           {/* Card 2 */}
           <div style={{
             backgroundColor: '#FFF9F0', 
@@ -77,7 +114,7 @@ function Gulmarg() {
             overflow: 'hidden',
           }}>
             <img 
-              src={`${process.env.PUBLIC_URL}/skiing.jpg`} 
+              src={`${process.env.PUBLIC_URL}/skiing.jpg`}  
               alt="Indira Gandhi Memorial Tulip Garden" 
               style={{ width: '100%', height: '200px', objectFit: 'cover' }} 
             />
@@ -95,11 +132,11 @@ function Gulmarg() {
                 color: '#666666', 
                 lineHeight: '1.6',
               }}>
-                Gulmarg is renowned for its pristine slopes, making it a premier destination for skiing and snowboarding.
+                Gulmarg is renowned for its pristine slopes, making it a premier destination for skiing and snowboarding. 
               </p>
             </div>
           </div>
-  
+
           {/* Card 3 */}
           <div style={{
             backgroundColor: '#FFF9F0', 
@@ -109,7 +146,7 @@ function Gulmarg() {
             overflow: 'hidden',
           }}>
             <img 
-              src={`${process.env.PUBLIC_URL}/apharwat.jpg`} 
+              src={`${process.env.PUBLIC_URL}/apharwat.jpg`}
               alt="Shalimar Bagh" 
               style={{ width: '100%', height: '200px', objectFit: 'cover' }} 
             />
@@ -127,26 +164,26 @@ function Gulmarg() {
                 color: '#666666', 
                 lineHeight: '1.6',
               }}>
-                A majestic peak offering panoramic views of the surrounding mountains.
+                Named after a Bollywood film, this valley is surrounded by deodar trees and offers picturesque views, making it a popular spot for tourists.
               </p>
             </div>
           </div>
         </div>
-  
+
         {/* Apple Orchards Section */}
         <div style={{
           position: 'relative', 
           marginTop: '50px',
         }}>
           <img 
-            src={`${process.env.PUBLIC_URL}/st mary.jpg`} 
+            src={`${process.env.PUBLIC_URL}/Mamleshwar.jpg`} 
             alt="Apple Orchards in Kashmir" 
             style={{ width: '100%', height: '500px', maxWidth: '800px', borderRadius: '8px' }} 
           />
           <div style={{
             position: 'absolute', 
-            top: '20%', 
-            right: '10%', 
+            top: '10%', 
+            right: '12%', 
             backgroundColor: 'rgba(255, 255, 255, 0.8)', 
             padding: '20px', 
             borderRadius: '10px',
@@ -160,62 +197,32 @@ function Gulmarg() {
               fontWeight: 'bold', 
               marginBottom: '10px',
             }}>
-              St. Mary’s Church
+              Mamleshwar Temple 
             </h3>
             <p style={{
               fontSize: '14px', 
               color: '#666', 
               lineHeight: '1.6',
             }}>
-              St. Mary’s Church in Gulmarg is a beautiful Victorian-style church surrounded by stunning natural scenery.
-            </p>
-            <h4 style={{
-              fontSize: '18px', 
-              color: '#333', 
-              fontWeight: 'bold', 
-              marginTop: '20px',
-            }}>
-              Activities
-            </h4>
-            <p style={{
-              fontSize: '14px', 
-              color: '#666', 
-              lineHeight: '1.6',
-            }}>
-              Visitors can hike to the church, enjoy photography, and explore its historical significance.
-            </p>
-            <h4 style={{
-              fontSize: '18px', 
-              color: '#333', 
-              fontWeight: 'bold', 
-              marginTop: '20px',
-            }}>
-              Best Time to Visit
-            </h4>
-            <p style={{
-              fontSize: '14px', 
-              color: '#666', 
-              lineHeight: '1.6',
-            }}>
-              The best time to visit is from May to August for pleasant weather.
+              Mamleshwar Temple is a historic Hindu temple in Kashmir known for its ancient architecture and spiritual significance.
             </p>
           </div>
         </div>
-  
+
         {/* Dachigam National Park Section with Box on the Left */}
         <div style={{
           position: 'relative', 
-          marginTop: '50px',
+          marginTop: '70px',
         }}>
           <img 
-            src={`${process.env.PUBLIC_URL}/biosphere reserve.jpg`} 
+            src={`${process.env.PUBLIC_URL}/Tulian lake.jpg`} 
             alt="Dachigam National Park" 
             style={{ width: '100%', height: '500px', maxWidth: '800px', borderRadius: '8px' }} 
           />
           <div style={{
             position: 'absolute', 
-            top: '20%', 
-            left: '10%', 
+            top: '10%', 
+            left: '12%', 
             backgroundColor: 'rgba(255, 255, 255, 0.8)', 
             padding: '20px', 
             borderRadius: '10px',
@@ -229,49 +236,20 @@ function Gulmarg() {
               fontWeight: 'bold', 
               marginBottom: '10px',
             }}>
-              Gulmarg Biosphere Reserve
+              Tulian Lake
             </h3>
             <p style={{
               fontSize: '14px', 
               color: '#666', 
               lineHeight: '1.6',
             }}>
-              Gulmarg Biosphere Reserve is a protected area known for its rich biodiversity, including various flora and fauna, set against the backdrop of the stunning Himalayas.
-            </p>
-            <h4 style={{
-              fontSize: '18px', 
-              color: '#333', 
-              fontWeight: 'bold', 
-              marginTop: '20px',
-            }}>
-              Activities
-            </h4>
-            <p style={{
-              fontSize: '14px', 
-              color: '#666', 
-              lineHeight: '1.6',
-            }}>
-              Visitors can enjoy trekking, bird watching, and nature photography while exploring the diverse ecosystems within the reserve.
-            </p>
-            <h4 style={{
-              fontSize: '18px', 
-              color: '#333', 
-              fontWeight: 'bold', 
-              marginTop: '20px',
-            }}>
-              Best Time to Visit
-            </h4>
-            <p style={{
-              fontSize: '14px', 
-              color: '#666', 
-              lineHeight: '1.6',
-            }}>
-              The ideal time to visit is from April to October, when the weather is mild and the flora is in full bloom.
+              Dachigam is home to a diverse range of wildlife, including the endangered Hangul deer. It offers breathtaking landscapes and scenic views.
             </p>
           </div>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
+}
 
-export  default Gulmarg;
+export default Gulmarg;
