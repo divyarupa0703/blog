@@ -28,7 +28,12 @@ const PostList = () => {
                             {post.content_title}
                         </Link>
                     </h3>
-                    <img src={post.content_image} alt={post.content_title} style={{ width: '100px', height: 'auto' }} />
+                    <img
+                        src={`${process.env.PUBLIC_URL}${post.content_image}`}
+                        alt={post.content_title}
+                        style={{ width: '100px', height: 'auto' }}
+                    />
+                    
                     <p>{post.content_title.slice(0, 100)}...</p>
                     <div>
                         <span>Tags: {post.tags.map(tag => tag.name).join(', ')}</span>
@@ -40,6 +45,5 @@ const PostList = () => {
         </div>
     );
 };
-
 
 export default PostList;
